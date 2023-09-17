@@ -80,7 +80,7 @@ return require('packer').startup(function(use)
     -- LSP progress indicator
     use({
         "j-hui/fidget.nvim",
-        -- tag = 'legacy',
+        tag = 'legacy',
         config = function()
             require("fidget").setup ({
                 --options
