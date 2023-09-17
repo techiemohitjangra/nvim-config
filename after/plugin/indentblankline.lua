@@ -1,6 +1,6 @@
 -- configuration for whitespace characters [[ nextLine or enter, space, multispace ]]
 vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
+-- vim.opt.listchars:append "eol:↴"
 vim.opt.listchars:append "space: "
 vim.opt.listchars:append "lead:∙" -- lead space replacements
 vim.opt.listchars:append "trail: "

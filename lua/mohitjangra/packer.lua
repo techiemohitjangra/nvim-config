@@ -44,6 +44,8 @@ return require('packer').startup(function(use)
         as = 'dracula',
     })
 
+    use('HiPhish/rainbow-delimiters.nvim')
+
     use({
         "folke/trouble.nvim",
         config = function()
