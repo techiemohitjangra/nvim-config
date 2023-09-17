@@ -1,4 +1,5 @@
 require("mohitjangra.set")
+require("mohitjangra.setting")
 require("mohitjangra.remap")
 
 local augroup = vim.api.nvim_create_augroup
