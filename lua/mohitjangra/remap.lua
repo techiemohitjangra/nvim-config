@@ -38,7 +38,7 @@ vim.keymap.set("n", "<C-J>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>K", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>J", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");

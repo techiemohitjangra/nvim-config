@@ -19,4 +19,4 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 -- vim.keymap.set('n', '<leader>ps', function()
 -- 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
--- end)
+-- end))
