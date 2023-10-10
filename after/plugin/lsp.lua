@@ -1,6 +1,5 @@
 local lsp = require("lsp-zero")
 
-
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -44,6 +43,18 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
     { desc = '[G]oto [D]efination', buffer = bufnr, remap = false })
 
+  vim.keymap.set("n", "gD", function() vim.lsp.buf.definition() end,
+    { desc = '[G]oto [D]eclaration', buffer = bufnr, remap = false })
+
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,
+    { desc = 'Hover Documentaion', buffer = bufnr, remap = false })
+
+  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol,
+    { desc = '[W]orkspace [S]ymbols', buffer = bufnr, remap = false })
+
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end,
+    { desc = 'Open [D]iagnostics', buffer = bufnr, remap = false })
+
   vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references,
     { desc = '[G]oto [R]eference LSP', buffer = bufnr, remap = false })
 
@@ -60,19 +71,10 @@ lsp.on_attach(function(_, bufnr)
     { desc = '[W]orkspace [S]ymbols LSP', buffer = bufnr, remap = false })
 
 
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,
-    { desc = 'Hover Documentaion', buffer = bufnr, remap = false })
-
-
-  vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol,
-    { desc = '[W]orkspace [S]ymbols', buffer = bufnr, remap = false })
-
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end,
-    { desc = 'Open [D]iagnostics', buffer = bufnr, remap = false })
-
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { desc = '', buffer = bufnr, remap = false })
 
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { desc = '', buffer = bufnr, remap = false })
+
 
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end,
     { desc = '[C]ode [A]ction', buffer = bufnr, remap = false })
@@ -80,15 +82,11 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end,
     { desc = '[G]oto [R]eference', buffer = bufnr, remap = false })
 
-  vim.keynap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,
     { desc = '[R]e[N]ame', buffer = bufnr, remap = false })
 
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
     { desc = 'Signature Documentation', buffer = bufnr, remap = false })
-
-
-  vim.keymap.set("n", "gD", function() vim.lsp.buf.definition() end,
-    { desc = '[G]oto [D]eclaration', buffer = bufnr, remap = false })
 
   vim.keymap.set("n", "<leader>wa", function() vim.lsp.buf.add_workspace_folder() end,
     { desc = '[W]orkspace [A]dd Folder', buffer = bufnr, remap = false })

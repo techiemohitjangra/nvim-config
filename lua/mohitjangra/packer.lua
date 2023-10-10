@@ -1,5 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
@@ -34,14 +32,21 @@ return require('packer').startup(function(use)
     use({
         'navarasu/onedark.nvim',
         as = 'onedark',
-        priority = 1000,
-        config = function()
-            vim.cmd.colorscheme 'onedark' -- enabled/active theme
-        end,
+        -- config = function()
+        --     vim.cmd.colorscheme 'onedark' -- enabled/active theme
+        -- end,
     })
     use({
         'dracula/vim',
         as = 'dracula',
+    })
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin",
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme 'catppuccin'
+        end
     })
 
     use('HiPhish/rainbow-delimiters.nvim')
@@ -84,7 +89,7 @@ return require('packer').startup(function(use)
         "j-hui/fidget.nvim",
         tag = 'legacy',
         config = function()
-            require("fidget").setup ({
+            require("fidget").setup({
                 --options
             })
         end,
@@ -105,7 +110,9 @@ return require('packer').startup(function(use)
                 'folke/neodev.nvim',
                 config = {
                     function()
-                        require('neodev').setup()
+                        require('neodev').setup({
+                            library = { plugins = { "nvim-dap-ui" }, types = true },
+                        })
                     end },
             },
 
@@ -124,23 +131,28 @@ return require('packer').startup(function(use)
     })
 
     use({
-        "akinsho/toggleterm.nvim",
-        tag = '*',
+        "hrsh7th/nvim-cmp",
+        requires = { "rcarriga/cmp-dap" },
         config = function()
-            require("toggleterm").setup()
+            require("cmp").setup({
+                enabled = function()
+                    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+                        or require("cmp_dap").is_dap_buffer()
+                end
+            })
+            require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dap_hover" }, {
+                source = {
+                    { name = "dap" },
+                }
+            })
         end
     })
 
     use({
-        "folke/which-key.nvim",
+        "akinsho/toggleterm.nvim",
+        tag = '*',
         config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("toggleterm").setup()
         end
     })
 
@@ -152,6 +164,7 @@ return require('packer').startup(function(use)
     })
 
     use('lewis6991/gitsigns.nvim')
+
     use({
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -163,6 +176,42 @@ return require('packer').startup(function(use)
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
+        end
+    })
+
+    use('mfussenegger/nvim-dap')
+
+    use({
+        "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap" }
+    })
+
+    use({
+        "theHamsta/nvim-dap-virtual-text"
+    })
+
+    use({
+        "nvim-telescope/telescope-dap.nvim"
+    })
+
+    use({
+        "mfussenegger/nvim-dap-python",
+        config = {
+            function()
+                require("dap-python").setup()
+            end
+        }
+    })
+
+    use({
+        "LiadOz/nvim-dap-repl-highlights",
+        config = function()
+            require("nvim-dap-repl-highlights").setup({
+                highlight = {
+                    enable = true,
+                },
+                ensure_installed = { 'dap_repl' }
+            })
         end
     })
 end)
