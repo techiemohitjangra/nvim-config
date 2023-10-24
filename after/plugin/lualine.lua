@@ -3,7 +3,8 @@ require('lualine').setup {
     icons_enabled = true,
     -- theme = 'auto'
     -- Find themes at https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    theme = 'catppuccin',
+    theme = 'tokyonight',
+    -- theme = 'catppuccin',
     -- theme = 'onedark',
     -- theme = 'dracula',
     -- component_separators = '|',
