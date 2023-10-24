@@ -11,8 +11,9 @@ vim.opt.termguicolors = true
 
 require('ibl').setup {
 	scope = { enabled = true },
-	indent = { char = "▏", smart_indent_cap = true },
-	-- indent = { char = '│'},
+	indent = { char = "▎", smart_indent_cap = true } -- default char
+
+	-- indent = { char = "▏", smart_indent_cap = true },
 	-- show_current_context = true,
 	-- show_end_of_line = true;
 	-- show_current_context_start = true,
