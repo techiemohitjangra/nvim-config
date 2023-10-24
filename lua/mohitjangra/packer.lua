@@ -43,10 +43,14 @@ return require('packer').startup(function(use)
     use({
         "catppuccin/nvim",
         as = "catppuccin",
+    })
+    use({
+        "folke/tokyonight.nvim",
+        as = "tokyonight",
         priority = 1000,
-        config = function()
-            vim.cmd.colorscheme 'catppuccin'
-        end
+        -- config = function()
+        --     vim.cmd.colorscheme 'tokyonight'
+        -- end
     })
 
     use('HiPhish/rainbow-delimiters.nvim')
@@ -214,4 +218,12 @@ return require('packer').startup(function(use)
             })
         end
     })
+
+    -- plugin to automatically pair (),[],{},"",''
+    -- use("jiangmiao/auto-pairs")
+    use({
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    })
+
 end)
