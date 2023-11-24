@@ -192,3 +192,9 @@ Intersteller
 EXITCODE
 fopen
 readall
+firstRange
+secondRange
+Move
+go
+quickfix
+lua
