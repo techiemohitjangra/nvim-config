@@ -235,4 +235,8 @@ return require('packer').startup(function(use)
         end
     })
 
+    -- Golang Plugin
+    use({
+        "https://github.com/fatih/vim-go.git"
+    })
 end)
