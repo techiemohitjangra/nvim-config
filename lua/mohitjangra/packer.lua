@@ -239,4 +239,5 @@ return require('packer').startup(function(use)
     use({
         "https://github.com/fatih/vim-go.git"
     })
+
 end)
