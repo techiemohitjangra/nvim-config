@@ -237,13 +237,15 @@ return require('packer').startup(function(use)
     })
 
     -- Golang Plugin
-    use ({
+    use({
         "https://github.com/fatih/vim-go.git"
     })
 
     -- show markdown preview in browser
-    use ({
+    use({
         "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = {"markdown"},
     })
 end)
