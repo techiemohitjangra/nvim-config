@@ -1,8 +1,6 @@
 require("mohitjangra.set")
 require("mohitjangra.setting")
 require("mohitjangra.remap")
-require("mohitjangra.todo_macros")
-require("mohitjangra.c_cpp_macros")
 
 local augroup = vim.api.nvim_create_augroup
 local MohitJangraGroup = augroup('mohitjangra', {})
