@@ -69,7 +69,7 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/packer
 
 -- source current file (over ridden by []Find Existing Buffer from telescope)
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+    vim.cmd("so %")
 end)
 
 -- momentarily highlight yanked text
