@@ -3,14 +3,14 @@ require('lualine').setup {
     icons_enabled = true,
     -- theme = 'auto'
     -- Find themes at https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    theme = 'tokyonight',
+    theme = 'rose-pine',
     -- theme = 'catppuccin',
     -- theme = 'onedark',
     -- theme = 'dracula',
-    -- component_separators = '|',
-    -- section_separators = '',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = '|',
+    section_separators = '',
+    -- component_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
