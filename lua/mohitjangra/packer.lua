@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 
     use({
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
+        tag = '0.1.5',
         -- or                            , branch = '0.1.x',
         requires = {
             { 'nvim-lua/plenary.nvim' },
@@ -25,16 +25,13 @@ return require('packer').startup(function(use)
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        -- config = function()
-        --     vim.cmd('colorscheme rose-pine')
-        -- end
+        config = function()
+            vim.cmd.colorscheme 'rose-pine'
+        end
     })
     use({
         'navarasu/onedark.nvim',
         as = 'onedark',
-        -- config = function()
-        --     vim.cmd.colorscheme 'onedark' -- enabled/active theme
-        -- end,
     })
     use({
         'dracula/vim',
@@ -47,10 +44,7 @@ return require('packer').startup(function(use)
     use({
         "folke/tokyonight.nvim",
         as = "tokyonight",
-        priority = 1000,
-        -- config = function()
-        --     vim.cmd.colorscheme 'tokyonight'
-        -- end
+        -- priority = 1000,
     })
 
     use('HiPhish/rainbow-delimiters.nvim')
@@ -77,7 +71,7 @@ return require('packer').startup(function(use)
     })
 
     use("nvim-treesitter/playground")
-    use("theprimeagen/harpoon")
+    use({ "theprimeagen/harpoon", branch = 'master' })
     use("theprimeagen/refactoring.nvim")
     use("mbbill/undotree")
 
@@ -240,5 +234,4 @@ return require('packer').startup(function(use)
     use({
         "https://github.com/fatih/vim-go.git"
     })
-
 end)

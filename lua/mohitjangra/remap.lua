@@ -69,15 +69,15 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/packer
 
 -- source current file (over ridden by []Find Existing Buffer from telescope)
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so %")
+vim.cmd("so %")
 end)
 
 -- momentarily highlight yanked text
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+callback = function()
+    vim.highlight.on_yank()
+end,
+group = highlight_group,
+pattern = '*',
 })
