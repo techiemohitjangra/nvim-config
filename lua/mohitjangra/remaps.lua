@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Uncomment to enable mouse mode
+-- uncomment to enable mouse mode
 -- vim.o.mouse = 'a'
 
 -- vim.keymap.set({'n', 'v'}, '<Space>', '<Nop>', { silent = true })
@@ -62,22 +62,12 @@ vim.keymap.set("n", "<leader>J", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- grant executable permission to current file
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- jump to packer.lua file
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/lazy/<CR>");
 
 -- source current file (over ridden by []Find Existing Buffer from telescope)
 vim.keymap.set("n", "<leader><leader>", function()
-vim.cmd("so %")
+    vim.cmd("so %")
 end)
-
--- momentarily highlight yanked text
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-callback = function()
-    vim.highlight.on_yank()
-end,
-group = highlight_group,
-pattern = '*',
-})

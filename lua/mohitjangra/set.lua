@@ -31,3 +31,38 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80" -- colume width to draw colored line at
 
+-- Spell checking
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.completeopt = 'menuone,noselect'
+
+-- momentarily highlight yanked text
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = highlight_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end,
+})
+
+
+-- remove trailing white space on save
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    group = MohitJangraGroup,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
+
+-- netrw config
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
