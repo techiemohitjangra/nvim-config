@@ -4,38 +4,37 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        -- plugins for code completion
+
+        -- for completion capabilities
         'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/nvim-cmp',
-        -- snippet engine plugins
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
-        "rafamadriz/friendly-snippets",
     },
     config = function()
+        -- completion capabilities
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
         -- lsp configs
-        local lspconfig = require("lspconfig")
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensured_installed = {
+            ensure_installed = {
                 "tsserver",
                 "clangd",
                 "gopls",
                 "pyright",
-                "rusl_analyzer",
+                "rust_analyzer",
+                "lua_ls",
             },
             handlers = {
                 -- default handler (optional)
                 -- default settings for rest of the lsp
                 function(server_name)
-                    lspconfig[server_name].setup({})
+                    require("lspconfig")[server_name].setup({
+                        capabilities = capabilities
+                    })
                 end,
                 -- customization for lua lsp
                 ["lua_ls"] = function()
-                    lspconfig.lua_ls.setup({
+                    require("lspconfig").lua_ls.setup({
+                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 runtime = {
@@ -66,12 +65,6 @@ return {
 
             },
         })
-
-        -- Global key bindings
-        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic messege' })
-        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic messege' })
-        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic messege' })
-        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic list' })
 
         -- Key binding for lsp attached buffers
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -118,34 +111,6 @@ return {
                 vim.keymap.set("n", "<leader>wl", function() vim.lsp.buf.list_workspace_folders() end,
                     { desc = '[W]orkspace [L]ist Folders', buffer = ev.buf, remap = false })
             end
-        })
-
-        -- completion configs
-        local cmp = require('cmp')
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body)
-                end,
-            },
-            -- window = {
-            --     completion = cmp.config.window.bordered(),
-            --     documentation = cmp.config.window.bordered(),
-            -- },
-            mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-            }),
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
-            }, {
-                { name = 'buffer' },
-            })
         })
 
         -- enable diagnostic virtual text
