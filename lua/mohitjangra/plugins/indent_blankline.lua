@@ -6,7 +6,7 @@ return {
 
         -- vim.opt.listchars:append "eol:↴"
         vim.opt.listchars:append "space: "
-        vim.opt.listchars:append "lead:∙" -- lead space replacements
+        -- vim.opt.listchars:append "lead:∙" -- lead space replacements
         vim.opt.listchars:append "trail: "
         vim.opt.listchars:append "extends:>"
         vim.opt.listchars:append "precedes:<"

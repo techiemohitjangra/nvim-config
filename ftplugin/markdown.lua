@@ -25,3 +25,8 @@ vim.keymap.set("n", "ma", ":lua NewItem('o- [ ] \\27')<CR>")
 
 -- Add items in the previous line
 vim.keymap.set("n", "mA", ":lua NewItem('O- [ ] \\27')<CR>")
+
+
+
+-- markdown specific keymap
+vim.cmd(":set wrap linebreak")
