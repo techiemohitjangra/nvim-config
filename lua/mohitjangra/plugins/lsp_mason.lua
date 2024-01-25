@@ -19,7 +19,6 @@ return {
                 "tsserver",
                 "clangd",
                 "gopls",
-                "pyright",
                 "rust_analyzer",
                 "lua_ls",
             },
