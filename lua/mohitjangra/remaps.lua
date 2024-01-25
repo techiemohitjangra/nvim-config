@@ -11,9 +11,6 @@ vim.g.maplocalleader = " "
 -- open netrw window
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- open undo tree
-vim.keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
-
 -- move rows in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -58,6 +55,12 @@ vim.keymap.set("n", "<C-J>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>K", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>J", "<cmd>lprev<CR>zz")
 
+-- navigation between windows
+vim.keymap.set("n", "<M-h>", "<cmd>wincmd h<CR>zz")
+vim.keymap.set("n", "<M-j>", "<cmd>wincmd j<CR>zz")
+vim.keymap.set("n", "<M-k>", "<cmd>wincmd k<CR>zz")
+vim.keymap.set("n", "<M-l>", "<cmd>wincmd l<CR>zz")
+
 -- replace string
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -65,7 +68,7 @@ vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- jump to packer.lua file
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/lazy/<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/mohitjangra/plugins/<CR>");
 
 -- source current file (over ridden by []Find Existing Buffer from telescope)
 vim.keymap.set("n", "<leader><leader>", function()
