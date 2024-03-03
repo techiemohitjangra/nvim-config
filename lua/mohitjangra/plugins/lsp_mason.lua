@@ -75,7 +75,7 @@ return {
                     { desc = '[G]oto [D]eclaration', buffer = ev.buf, remap = false })
                 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,
                     { desc = 'Hover Documentaion', buffer = ev.buf, remap = false })
-                vim.keymap.set("n", "F", require("telescope.builtin").spell_suggest,
+                vim.keymap.set("n", "<leader>F", require("telescope.builtin").spell_suggest,
                     { desc = 'Spelling Suggestions', buffer = ev.buf, remap = false })
                 vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol,
                     { desc = '[W]orkspace [S]ymbols', buffer = ev.buf, remap = false })
