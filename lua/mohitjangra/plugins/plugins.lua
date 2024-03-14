@@ -6,8 +6,7 @@ return {
     },
     'hiPhish/rainbow-delimiters.nvim',
     'theprimeagen/vim-be-good',
-    'https://github.com/fatih/vim-go.git'
+    'https://github.com/fatih/vim-go.git',
     -- Git
     -- 'tpope/vim-rhubarb',
-
 }
