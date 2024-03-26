@@ -96,3 +96,8 @@ DESC
 size
 initVector
 int32
+UI
+frontend
+mongodb
+json
+api
