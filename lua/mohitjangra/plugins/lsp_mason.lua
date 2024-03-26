@@ -16,18 +16,17 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "tsserver",
                 "clangd",
                 "gopls",
-                "rust_analyzer",
                 "lua_ls",
+                "pylsp",
             },
             handlers = {
                 -- default handler (optional)
                 -- default settings for rest of the lsp
                 function(server_name)
                     require("lspconfig")[server_name].setup({
-                        capabilities = capabilities
+                        capabilities = capabilities,
                     })
                 end,
                 -- customization for lua lsp
