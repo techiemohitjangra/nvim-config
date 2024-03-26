@@ -15,4 +15,4 @@ vim.lsp.start({
     end
 })
 
-vim.keymap.set('n', "<leader>f", ":silent !gdformat %<CR>")
+vim.api.nvim_buf_set_keymap(0, 'n', "<leader>f", ":silent !gdformat %<CR>", { noremap = true, silent = true })
