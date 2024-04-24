@@ -48,8 +48,8 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- navigation in quickfix list
-vim.keymap.set("n", "<C-K>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-J>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-S-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-S-j>", "<cmd>cprev<CR>zz")
 
 -- navigation in location list
 vim.keymap.set("n", "<leader>K", "<cmd>lnext<CR>zz")
