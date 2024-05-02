@@ -11,5 +11,5 @@ vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":!build.sh<CR>", { noremap = true, 
 --  * param:
 --  * return:
 --  */
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>cd", 'o/* Description: \nfunction: \nparam: \nreturn: \n<BS>/<ESC>4kA',
+vim.api.nvim_buf_set_keymap(0, "n", "<leader>cd", 'o/* Description: \nfunction: \nparam: \nreturn: \ncomplexity: \n<BS>/<ESC>5kA',
     { noremap = true, silent = true })
