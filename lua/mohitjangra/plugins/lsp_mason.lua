@@ -20,6 +20,7 @@ return {
                 "gopls",
                 "lua_ls",
                 "pylsp",
+                "zls",
             },
             handlers = {
                 -- default handler (optional)
