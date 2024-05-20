@@ -61,6 +61,29 @@ return {
                         },
                     })
                 end,
+                ["emmet_ls"] = function()
+                    -- emmet setup
+                    -- local configs = require("lspconfig/configs")
+                    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+                    -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+                    require("lspconfig").emmet_ls.setup({
+                        capabilities = capabilities,
+                        filetypes = { "css", "html", "javascript", "tmpl", "gohtmltmpl" },
+                        init_options = {
+                            html = {
+                                options = {
+                                    ["bem.enabled"] = true,
+                                }
+                            },
+                            tmpl = {
+                                options = {
+                                    ["bem.enabled"] = true,
+                                }
+                            },
+                        },
+                    })
+                end
             },
         })
 
