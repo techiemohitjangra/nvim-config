@@ -69,7 +69,7 @@ return {
 
                     require("lspconfig").emmet_ls.setup({
                         capabilities = capabilities,
-                        filetypes = { "css", "html", "javascript", "tmpl", "gohtmltmpl" },
+                        filetypes = { "css", "html", "javascript", "tmpl", "gohtmltmpl", "templ" },
                         init_options = {
                             html = {
                                 options = {
