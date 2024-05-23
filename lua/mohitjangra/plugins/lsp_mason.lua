@@ -81,6 +81,11 @@ return {
                                     ["bem.enabled"] = true,
                                 }
                             },
+                            templ = {
+                                options = {
+                                    ["bem.enabled"] = true,
+                                }
+                            },
                         },
                     })
                 end,
