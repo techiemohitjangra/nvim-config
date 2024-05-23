@@ -83,7 +83,36 @@ return {
                             },
                         },
                     })
-                end
+                end,
+                ["templ"] = function()
+                    require("lspconfig").templ.setup({
+                        capabilities = capabilities,
+                        filetypes = { "templ" },
+                    })
+                end,
+                ["html"] = function()
+                    require("lspconfig").html.setup({
+                        capabilities = capabilities,
+                        filetypes = { "templ", "html" },
+                    })
+                end,
+                ["htmx"] = function()
+                    require("lspconfig").htmx.setup({
+                        capabilities = capabilities,
+                        filetypes = { "templ", "html" },
+                    })
+                end,
+                ["tailwindcss"] = function()
+                    require("lspconfig").tailwindcss.setup({
+                        capabilities = capabilities,
+                        filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+                        init_options = {
+                            userLanguages = {
+                                templ = "html"
+                            }
+                        },
+                    })
+                end,
             },
         })
 
