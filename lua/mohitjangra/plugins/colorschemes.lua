@@ -17,6 +17,11 @@ return {
         end
     },
     {
+        'navarasu/onedark.nvim',
+        name = 'onedark',
+        lazy = true,
+    },
+    {
         'Mofiqul/dracula.nvim',
         name = 'dracula',
         lazy = true,
