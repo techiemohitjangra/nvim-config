@@ -2,7 +2,7 @@
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>cm", "A\\<ESC>j0", { noremap = true, silent = true })
 
 -- add keybind to build C/C++ project
-vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":!build.sh<CR>", { noremap = true, silent = true })
+vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":!make<CR>", { noremap = true, silent = true })
 
 -- comment docs
 -- Example:
