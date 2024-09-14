@@ -118,3 +118,5 @@ env
 sql
 AWS
 DevSecOps
+allocator
+deallocated
