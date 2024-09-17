@@ -3,6 +3,6 @@ return {
     'j-hui/fidget.nvim',
     name = 'fidget',
     config = function()
-        require('fidget').setup()
+        require('fidget').setup({})
     end,
 }
