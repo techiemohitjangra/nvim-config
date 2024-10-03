@@ -3,9 +3,9 @@ vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":rightbelow vsplit | term zig build
     { noremap = true, silent = true, desc = "Build and run zig project" })
 
 -- add keybind to build and test Zig project
-vim.api.nvim_buf_set_keymap(0, "n", "<F6>", ":!zig build test<CR>",
+vim.api.nvim_buf_set_keymap(0, "n", "<F6>", ":rightbelow vsplit | term zig build test; exit<CR>i",
     { noremap = true, silent = true, desc = "Build and run unit test" })
 
 -- add keybind to build and test Zig project
-vim.api.nvim_buf_set_keymap(0, "n", "<F9>", ":!zig build --release=",
+vim.api.nvim_buf_set_keymap(0, "n", "<F9>", ":rightbelow vsplit | term zig build -Doptimize=Release",
     { noremap = true, silent = true, desc = "Release Build zig project" })
