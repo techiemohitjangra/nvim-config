@@ -16,5 +16,3 @@ vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":rightbelow vsplit | term g++ -Wall
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>cd",
     "o/* Description: \nfunction: \nparam: \nreturn: \ncomplexity: \n<BS>/<ESC>5kA",
     { noremap = true, silent = true })
-
-print("this i C++\n")
