@@ -5,6 +5,7 @@ end
 
 -- add \ at the end of line, used for macros in c
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>cm", "A\\<ESC>j0", { noremap = true, silent = true })
+vim.api.nvim_buf_set_keymap(0, "v", "<leader>cm", ":s/$/\\\\/<CR>", { noremap = true, silent = true })
 
 -- add keybind to compile and execute C files
 vim.api.nvim_buf_set_keymap(0, "n", "<F5>", ":rightbelow vsplit | term gcc -Wall % -o %< && %<; exit<CR>i",
