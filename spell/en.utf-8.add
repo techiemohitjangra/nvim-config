@@ -133,3 +133,4 @@ zig
 Roadmap
 TUI
 util
+Allocator
